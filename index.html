@@ -275,7 +275,7 @@ You must replace <code>{{token}}</code> with your authentication token.
 <h1 id='listings'>Listings</h1><h2 id='create-new-listing'>Create New Listing</h2>
 <p>This endpoint creates a listing.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>POST http://{{BASE_URL}}/api/metro/v1/listing</code></p>
+<p><code>POST https://{{BASE_URL}}/api/metro/v1/listing</code></p>
 <h3 id='parameters'>Parameters</h3>
 <table><thead>
 <tr>
@@ -327,7 +327,7 @@ Requester: Metro</p>
 <h2 id='update-listing'>Update Listing</h2>
 <p>This endpoint updates status of the requested listing.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>PATCH http://{{METRO_URL}}/.../{{unique_listing_id}}</code></p>
+<p><code>PATCH https://{{METRO_URL}}/.../{{unique_listing_id}}</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -359,7 +359,7 @@ Requester: WholeSurplus</p>
 <h2 id='upload-paper'>Upload Paper</h2>
 <p>This endpoint uploads a paper to the requested listing.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>POST http://{{BASE_URL}}/api/metro/v1/listing/{{id}}/papers</code></p>
+<p><code>POST https://{{BASE_URL}}/api/metro/v1/listing/{{id}}/papers</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -407,7 +407,7 @@ Requester: Metro</p>
 <h1 id='general-apis'>General APIs</h1><h2 id='details-of-an-article'>Details of an Article</h2>
 <p>This endpoint returns article information in JSON format.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>GET http://{{METRO_URL}}/.../{{no}}</code></p>
+<p><code>GET https://{{METRO_URL}}/.../{{no}}</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -417,7 +417,7 @@ Requester: Metro</p>
 </thead><tbody>
 <tr>
 <td>no</td>
-<td>No can be either the article number or the GTIN.</td>
+<td>&quot;No&quot; can be either the article number or the GTIN.</td>
 </tr>
 </tbody></table>
 <h3 id='response-data'>Response Data</h3>
@@ -428,34 +428,34 @@ Requester: Metro</p>
   </br>
   category_id           :integer
   </br>
-  metric_unit           :integer          default(&quot;unit&quot;)
+  metric_unit           :integer<br>
   </br>
-  cogs_cents            :integer          default(0), not null
+  cogs_cents            :integer          not null
   </br>
-  cogs_currency         :string           default(&quot;TRY&quot;), not null
+  cogs_currency         :string           not null
   </br>
-  origin                :integer          default(&quot;unknown&quot;)
+  origin                :integer<br>
   </br>
-  content_metric_unit   :integer          default(&quot;unknown&quot;)
+  content_metric_unit   :integer<br>
   </br>
   store_acceptance_time :string
-  height                :decimal(, )      default(0.0)
+  height                :decimal(, )<br>
   </br>
-  width                 :decimal(, )      default(0.0)
+  width                 :decimal(, )<br>
   </br>
-  length                :decimal(, )      default(0.0)
+  length                :decimal(, )<br>
   </br>
-  country               :string           default(&quot;Turkey&quot;)
+  country               :string<br>
   </br>
   shelf_life_time       :integer
   </br>
-  type_of_good          :integer          default(&quot;food&quot;)
+  type_of_good          :integer<br>
   </br>
   count_in_pallet       :integer
   </br>
   count_in_package      :integer
   </br>
-  package_type          :string           default(&quot;Adet&quot;)
+  package_type          :string<br>
   </br>
   unit_weight           :decimal(, )
 </code></p>
@@ -466,7 +466,7 @@ Requester: Whole Surplus</p>
 <h2 id='details-of-a-category'>Details of a Category</h2>
 <p>This endpoint returns category information in JSON format.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>GET http://{{METRO_URL}}/.../{{categories}}/{{id}}</code></p>
+<p><code>GET https://{{METRO_URL}}/.../{{categories}}/{{id}}</code></p>
 <h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -505,6 +505,10 @@ Requester: WholeSurplus</p>
 <td>Category, origin etc.</td>
 </tr>
 </tbody></table>
+
+<p>Owner: Metro
+</br>
+Requester: Whole Surplus</p>
 <h1 id='errors'>Errors</h1>
 <p>The Whole Surplus API uses the following error codes:</p>
 
@@ -536,7 +540,7 @@ Requester: WholeSurplus</p>
 </tr>
 <tr>
 <td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+<td>Not Acceptable -- You requested a format that is not JSON.</td>
 </tr>
 <tr>
 <td>429</td>
