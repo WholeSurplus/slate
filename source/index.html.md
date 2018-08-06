@@ -52,32 +52,19 @@ code | Specific code for that action (e.g. Donation: XXX, ReSelling: YYY etc.)
 Articles | The list of the articles to be included in the listing. Each article has two fields as article number and amount. 
 
 Example:
-```
-  </br>
+```json
   {
-  </br>
     "store_id": 2,
-  </br>
     "unique_listing_id": "21789547",
-  </br>
     "code": "XXX",
-  </br>  
     "articles": [{
-  </br> 
       "article_number": 4568786321,
-  </br>
       "amount": 10.0
-  </br>
     },
-  </br>
     {
-  </br>
       "article_number": 4786138768,
-  </br>
       "amount": 23.0
-  </br>
     }]
-  </br>
   }
 ```
 <aside class="success">
