@@ -1,15 +1,14 @@
 ---
-title: API Reference
+title: API Documentation of Integration Between WholeSurplus and Metronom 
 
-language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
-  - javascript
+#language_tabs: # must be one of https://git.io/vQNgJ
+  #- shell
+  #- ruby
+  #- python
+  #- javascript
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
+  - <a href='https://wholesurplus.com/'>See our homepage.</a>
 
 includes:
   - errors
@@ -19,221 +18,184 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
-
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
-
-This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
+Welcome to the proposal API documentation of integration between WholeSurplus and Metronom!
 
 # Authentication
 
-> To authorize, use this code:
+Our API uses OAuth2 authentication to allow access to our endpoints.
 
-```ruby
-require 'kittn'
+Our API expects authentication token to be included in all API requests to the server in a header that looks like the following:
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+`Authorization: Bearer {{token}}`
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>{{token}}</code> with your authentication token.
 </aside>
 
-# Kittens
+# Listings
 
-## Get All Kittens
+## Create New Listing
 
-```ruby
-require 'kittn'
+This endpoint creates a listing.
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
+### HTTP Request
 
-```python
-import kittn
+`POST http://{{BASE_URL}}/api/metro/v1/listing`
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
+### Parameters
 
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
+Parameter | Description
+--------- | -----------
+store_id | ID of the store the listing is going to be created for
+unique_listing_id | MG_NO in Turkey MMS
+code | Specific code for that action (e.g. Donation: XXX, ReSelling: YYY etc.)
+Articles | The list of the articles to be included in the listing. Each article has two fields as article number and amount. 
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
+Example:
+  ```json
   {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
+    "store_id": 2,
+    "unique_listing_id": "21789547",
+    "code": "XXX",
+    "articles": [{
+      "article_number": 4568786321,
+      "amount": 10.0
+    },
+    {
+      "article_number": 4786138768,
+      "amount": 23.0
+    }]
   }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
+  ```
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+This endpoint only returns success code 201.
 </aside>
 
-## Get a Specific Kitten
+Owner: WholeSurplus
+Requester: Metro
 
-```ruby
-require 'kittn'
+## Update Listing
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+This endpoint updates status of the requested listing.
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`PATCH http://{{METRO_URL}}/...<ID>`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
+unique_listing_id | The ID of the listing to be updated.
 
-## Delete a Specific Kitten
+### Parameters
 
-```ruby
-require 'kittn'
+Parameter | Description
+--------- | -----------
+status | OK, CANCEL
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
+Owner: Metro
+Requester: WholeSurplus
 
-```python
-import kittn
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
+## Upload Paper
 
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint deletes a specific kitten.
+This endpoint uploads a paper to the requested listing.
 
 ### HTTP Request
 
-`DELETE http://example.com/kittens/<ID>`
+`POST http://{{BASE_URL}}/api/metro/v1/listing/{{id}}/papers`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to delete
+id | The ID of the listing to which the paper is going to be uploaded
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+file | The file that is going to be uploaded
+file_type | Type of the file that is going to be uploaded
+paper_no | Voucher number
+paper_date | Issue date of the paper
+total_amount | Invoice amount
+
+Owner: WholeSurplus
+Requester: Metro
+
+# General APIs
+
+## Details of an Article
+
+This endpoint returns article information in JSON format.
+
+### HTTP Request
+
+`GET http://{{METRO_URL}}/.../{{no}}`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+no | No can be either the article number or the GTIN.
+
+### Response Data
+
+  name                  :string           not null
+  gtin                  :string           not null
+  category_id           :integer
+  metric_unit           :integer          default("unit")
+  cogs_cents            :integer          default(0), not null
+  cogs_currency         :string           default("TRY"), not null
+  origin                :integer          default("unknown")
+  content_metric_unit   :integer          default("unknown")
+  store_acceptance_time :string
+  height                :decimal(, )      default(0.0)
+  width                 :decimal(, )      default(0.0)
+  length                :decimal(, )      default(0.0)
+  country               :string           default("Turkey")
+  shelf_life_time       :integer
+  type_of_good          :integer          default("food")
+  count_in_pallet       :integer
+  count_in_package      :integer
+  package_type          :string           default("Adet")
+  unit_weight           :decimal(, )
+
+Owner: Metro
+Requester: Whole Surplus
+
+## Details of a Category
+
+This endpoint returns category information in JSON format.
+
+### HTTP Request
+
+`GET http://{{METRO_URL}}/.../{{categories}}/{{id}}`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | ID of the category
+
+Owner: Metro
+Requester: WholeSurplus
+
+## Articles
+
+This endpoint returns a list of articles
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+limit | The maximum number of articles to be returned.
+page | Page number
+filters | Category, origin etc.
+
+
+
+
 
