@@ -40,7 +40,7 @@ This endpoint creates a listing.
 
 ### HTTP Request
 
-`POST http://{{BASE_URL}}/api/metro/v1/listing`
+`POST https://{{BASE_URL}}/api/metro/v1/listing`
 
 ### Parameters
 
@@ -81,7 +81,7 @@ This endpoint updates status of the requested listing.
 
 ### HTTP Request
 
-`PATCH http://{{METRO_URL}}/.../{{unique_listing_id}}`
+`PATCH https://{{METRO_URL}}/.../{{unique_listing_id}}`
 
 ### URL Parameters
 
@@ -99,14 +99,13 @@ Owner: Metro
 </br>
 Requester: WholeSurplus
 
-
 ## Upload Paper
 
 This endpoint uploads a paper to the requested listing.
 
 ### HTTP Request
 
-`POST http://{{BASE_URL}}/api/metro/v1/listing/{{id}}/papers`
+`POST https://{{BASE_URL}}/api/metro/v1/listing/{{id}}/papers`
 
 ### URL Parameters
 
@@ -136,13 +135,13 @@ This endpoint returns article information in JSON format.
 
 ### HTTP Request
 
-`GET http://{{METRO_URL}}/.../{{no}}`
+`GET https://{{METRO_URL}}/.../{{no}}`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-no | No can be either the article number or the GTIN.
+no | "No" can be either the article number or the GTIN.
 
 ### Response Data
 
@@ -153,34 +152,34 @@ no | No can be either the article number or the GTIN.
   </br>
   category_id           :integer
   </br>
-  metric_unit           :integer          default("unit")
+  metric_unit           :integer          
   </br>
-  cogs_cents            :integer          default(0), not null
+  cogs_cents            :integer          not null
   </br>
-  cogs_currency         :string           default("TRY"), not null
+  cogs_currency         :string           not null
   </br>
-  origin                :integer          default("unknown")
+  origin                :integer          
   </br>
-  content_metric_unit   :integer          default("unknown")
+  content_metric_unit   :integer          
   </br>
   store_acceptance_time :string
-  height                :decimal(, )      default(0.0)
+  height                :decimal(, )      
   </br>
-  width                 :decimal(, )      default(0.0)
+  width                 :decimal(, )     
   </br>
-  length                :decimal(, )      default(0.0)
+  length                :decimal(, )      
   </br>
-  country               :string           default("Turkey")
+  country               :string           
   </br>
   shelf_life_time       :integer
   </br>
-  type_of_good          :integer          default("food")
+  type_of_good          :integer          
   </br>
   count_in_pallet       :integer
   </br>
   count_in_package      :integer
   </br>
-  package_type          :string           default("Adet")
+  package_type          :string           
   </br>
   unit_weight           :decimal(, )
 </code>
@@ -195,7 +194,7 @@ This endpoint returns category information in JSON format.
 
 ### HTTP Request
 
-`GET http://{{METRO_URL}}/.../{{categories}}/{{id}}`
+`GET https://{{METRO_URL}}/.../{{categories}}/{{id}}`
 
 ### URL Parameters
 
@@ -219,7 +218,9 @@ limit | The maximum number of articles to be returned.
 page | Page number
 filters | Category, origin etc.
 
-
+Owner: Metro
+</br>
+Requester: Whole Surplus
 
 
 
