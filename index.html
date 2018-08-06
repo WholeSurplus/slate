@@ -303,7 +303,7 @@ You must replace <code>{{token}}</code> with your authentication token.
 
 <blockquote>
 <p>Example:
-  <code>json
+<code>json
   {
     &quot;store_id&quot;: 2,
     &quot;unique_listing_id&quot;: &quot;21789547&quot;,
@@ -425,23 +425,40 @@ Requester: Metro</p>
 <h3 id='response-data'>Response Data</h3>
 <p><code>
   name                  :string           not null
+  </br>
   gtin                  :string           not null
+  </br>
   category_id           :integer
+  </br>
   metric_unit           :integer          default(&quot;unit&quot;)
+  </br>
   cogs_cents            :integer          default(0), not null
+  </br>
   cogs_currency         :string           default(&quot;TRY&quot;), not null
+  </br>
   origin                :integer          default(&quot;unknown&quot;)
+  </br>
   content_metric_unit   :integer          default(&quot;unknown&quot;)
+  </br>
   store_acceptance_time :string
   height                :decimal(, )      default(0.0)
+  </br>
   width                 :decimal(, )      default(0.0)
+  </br>
   length                :decimal(, )      default(0.0)
+  </br>
   country               :string           default(&quot;Turkey&quot;)
+  </br>
   shelf_life_time       :integer
+  </br>
   type_of_good          :integer          default(&quot;food&quot;)
+  </br>
   count_in_pallet       :integer
+  </br>
   count_in_package      :integer
+  </br>
   package_type          :string           default(&quot;Adet&quot;)
+  </br>
   unit_weight           :decimal(, )
 </code></p>
 
