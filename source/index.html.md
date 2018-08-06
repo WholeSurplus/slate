@@ -51,7 +51,7 @@ unique_listing_id | MG_NO in Turkey MMS
 code | Specific code for that action (e.g. Donation: XXX, ReSelling: YYY etc.)
 Articles | The list of the articles to be included in the listing. Each article has two fields as article number and amount. 
 
-Example:
+> Example:
   ```json
   {
     "store_id": 2,
@@ -72,6 +72,7 @@ This endpoint only returns success code 201.
 </aside>
 
 Owner: WholeSurplus
+</br>
 Requester: Metro
 
 ## Update Listing
@@ -80,7 +81,7 @@ This endpoint updates status of the requested listing.
 
 ### HTTP Request
 
-`PATCH http://{{METRO_URL}}/...<ID>`
+`PATCH http://{{METRO_URL}}/.../{{unique_listing_id}}`
 
 ### URL Parameters
 
@@ -95,6 +96,7 @@ Parameter | Description
 status | OK, CANCEL
 
 Owner: Metro
+</br>
 Requester: WholeSurplus
 
 
@@ -123,6 +125,7 @@ paper_date | Issue date of the paper
 total_amount | Invoice amount
 
 Owner: WholeSurplus
+</br>
 Requester: Metro
 
 # General APIs
@@ -143,6 +146,7 @@ no | No can be either the article number or the GTIN.
 
 ### Response Data
 
+<code>
   name                  :string           not null
   gtin                  :string           not null
   category_id           :integer
@@ -162,8 +166,10 @@ no | No can be either the article number or the GTIN.
   count_in_package      :integer
   package_type          :string           default("Adet")
   unit_weight           :decimal(, )
+</code>
 
 Owner: Metro
+</br>
 Requester: Whole Surplus
 
 ## Details of a Category
@@ -181,6 +187,7 @@ Parameter | Description
 id | ID of the category
 
 Owner: Metro
+</br>
 Requester: WholeSurplus
 
 ## Articles
