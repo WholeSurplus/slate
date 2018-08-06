@@ -52,7 +52,7 @@ code | Specific code for that action (e.g. Donation: XXX, ReSelling: YYY etc.)
 Articles | The list of the articles to be included in the listing. Each article has two fields as article number and amount. 
 
 > Example:
-  ```json
+```json
   {
     "store_id": 2,
     "unique_listing_id": "21789547",
@@ -66,7 +66,7 @@ Articles | The list of the articles to be included in the listing. Each article 
       "amount": 23.0
     }]
   }
-  ```
+```
 <aside class="success">
 This endpoint only returns success code 201.
 </aside>
@@ -148,23 +148,40 @@ no | No can be either the article number or the GTIN.
 
 <code>
   name                  :string           not null
+  </br>
   gtin                  :string           not null
+  </br>
   category_id           :integer
+  </br>
   metric_unit           :integer          default("unit")
+  </br>
   cogs_cents            :integer          default(0), not null
+  </br>
   cogs_currency         :string           default("TRY"), not null
+  </br>
   origin                :integer          default("unknown")
+  </br>
   content_metric_unit   :integer          default("unknown")
+  </br>
   store_acceptance_time :string
   height                :decimal(, )      default(0.0)
+  </br>
   width                 :decimal(, )      default(0.0)
+  </br>
   length                :decimal(, )      default(0.0)
+  </br>
   country               :string           default("Turkey")
+  </br>
   shelf_life_time       :integer
+  </br>
   type_of_good          :integer          default("food")
+  </br>
   count_in_pallet       :integer
+  </br>
   count_in_package      :integer
+  </br>
   package_type          :string           default("Adet")
+  </br>
   unit_weight           :decimal(, )
 </code>
 
