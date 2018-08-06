@@ -301,6 +301,7 @@ You must replace <code>{{token}}</code> with your authentication token.
 </tr>
 </tbody></table>
 
+<blockquote>
 <p>Example:
   <code>json
   {
@@ -320,13 +321,15 @@ You must replace <code>{{token}}</code> with your authentication token.
 <aside class="success">
 This endpoint only returns success code 201.
 </aside></p>
+</blockquote>
 
 <p>Owner: WholeSurplus
+</br>
 Requester: Metro</p>
 <h2 id='update-listing'>Update Listing</h2>
 <p>This endpoint updates status of the requested listing.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>PATCH http://{{METRO_URL}}/...&lt;ID&gt;</code></p>
+<p><code>PATCH http://{{METRO_URL}}/.../{{unique_listing_id}}</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -353,6 +356,7 @@ Requester: Metro</p>
 </tbody></table>
 
 <p>Owner: Metro
+</br>
 Requester: WholeSurplus</p>
 <h2 id='upload-paper'>Upload Paper</h2>
 <p>This endpoint uploads a paper to the requested listing.</p>
@@ -400,6 +404,7 @@ Requester: WholeSurplus</p>
 </tbody></table>
 
 <p>Owner: WholeSurplus
+</br>
 Requester: Metro</p>
 <h1 id='general-apis'>General APIs</h1><h2 id='details-of-an-article'>Details of an Article</h2>
 <p>This endpoint returns article information in JSON format.</p>
@@ -418,7 +423,8 @@ Requester: Metro</p>
 </tr>
 </tbody></table>
 <h3 id='response-data'>Response Data</h3>
-<p>name                  :string           not null
+<p><code>
+  name                  :string           not null
   gtin                  :string           not null
   category_id           :integer
   metric_unit           :integer          default(&quot;unit&quot;)
@@ -436,9 +442,11 @@ Requester: Metro</p>
   count_in_pallet       :integer
   count_in_package      :integer
   package_type          :string           default(&quot;Adet&quot;)
-  unit_weight           :decimal(, )</p>
+  unit_weight           :decimal(, )
+</code></p>
 
 <p>Owner: Metro
+</br>
 Requester: Whole Surplus</p>
 <h2 id='details-of-a-category'>Details of a Category</h2>
 <p>This endpoint returns category information in JSON format.</p>
@@ -458,6 +466,7 @@ Requester: Whole Surplus</p>
 </tbody></table>
 
 <p>Owner: Metro
+</br>
 Requester: WholeSurplus</p>
 <h2 id='articles'>Articles</h2>
 <p>This endpoint returns a list of articles</p>
