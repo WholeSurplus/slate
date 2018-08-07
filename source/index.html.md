@@ -49,7 +49,7 @@ Parameter | Description
 store_id | ID of the store the listing is going to be created for
 unique_listing_id | MG_NO in Turkey MMS
 code | Specific code for that action (e.g. Donation: XXX, ReSelling: YYY etc.)
-Articles | The list of the articles to be included in the listing. Each article has two fields as article number and amount. 
+Artikels | The list of the artikels to be included in the listing. Each artikel has two fields as artikel number and amount. 
 
 Example:
 ```
@@ -57,12 +57,12 @@ Example:
     "store_id": 2,
     "unique_listing_id": "21789547",
     "code": "XXX",
-    "articles": [{
-      "article_number": 4568786321,
+    "artikels": [{
+      "artikel_number": 4568786321,
       "amount": 10.0
     },
     {
-      "article_number": 4786138768,
+      "artikel_number": 4786138768,
       "amount": 23.0
     }]
   }
@@ -129,9 +129,9 @@ Requester: Metro
 
 # General APIs
 
-## Details of an Article
+## Details of an Artikel
 
-This endpoint returns article information in JSON format.
+This endpoint returns artikel information in JSON format.
 
 ### HTTP Request
 
@@ -141,7 +141,7 @@ This endpoint returns article information in JSON format.
 
 Parameter | Description
 --------- | -----------
-no | "No" can be either the article number or the GTIN.
+no | "No" can be either the artikel number or the GTIN.
 
 ### Response Data
 
@@ -206,15 +206,15 @@ Owner: Metro
 </br>
 Requester: WholeSurplus
 
-## Articles
+## Artikels
 
-This endpoint returns a list of articles
+This endpoint returns a list of artikels
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-limit | The maximum number of articles to be returned.
+limit | The maximum number of artikels to be returned.
 page | Page number
 filters | Category, origin etc.
 
