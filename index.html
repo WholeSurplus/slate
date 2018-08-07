@@ -239,13 +239,13 @@
             <a href="#general-apis" class="toc-h1 toc-link" data-title="General APIs">General APIs</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#details-of-an-article" class="toc-h2 toc-link" data-title="Details of an Article">Details of an Article</a>
+                    <a href="#details-of-an-artikel" class="toc-h2 toc-link" data-title="Details of an Artikel">Details of an Artikel</a>
                   </li>
                   <li>
                     <a href="#details-of-a-category" class="toc-h2 toc-link" data-title="Details of a Category">Details of a Category</a>
                   </li>
                   <li>
-                    <a href="#articles" class="toc-h2 toc-link" data-title="Articles">Articles</a>
+                    <a href="#artikels" class="toc-h2 toc-link" data-title="Artikels">Artikels</a>
                   </li>
               </ul>
           </li>
@@ -296,8 +296,8 @@ You must replace <code>{{token}}</code> with your authentication token.
 <td>Specific code for that action (e.g. Donation: XXX, ReSelling: YYY etc.)</td>
 </tr>
 <tr>
-<td>Articles</td>
-<td>The list of the articles to be included in the listing. Each article has two fields as article number and amount.</td>
+<td>Artikels</td>
+<td>The list of the artikels to be included in the listing. Each artikel has two fields as artikel number and amount.</td>
 </tr>
 </tbody></table>
 
@@ -307,12 +307,12 @@ You must replace <code>{{token}}</code> with your authentication token.
     &quot;store_id&quot;: 2,
     &quot;unique_listing_id&quot;: &quot;21789547&quot;,
     &quot;code&quot;: &quot;XXX&quot;,
-    &quot;articles&quot;: [{
-      &quot;article_number&quot;: 4568786321,
+    &quot;artikels&quot;: [{
+      &quot;artikel_number&quot;: 4568786321,
       &quot;amount&quot;: 10.0
     },
     {
-      &quot;article_number&quot;: 4786138768,
+      &quot;artikel_number&quot;: 4786138768,
       &quot;amount&quot;: 23.0
     }]
   }
@@ -404,8 +404,8 @@ Requester: WholeSurplus</p>
 <p>Owner: WholeSurplus
 </br>
 Requester: Metro</p>
-<h1 id='general-apis'>General APIs</h1><h2 id='details-of-an-article'>Details of an Article</h2>
-<p>This endpoint returns article information in JSON format.</p>
+<h1 id='general-apis'>General APIs</h1><h2 id='details-of-an-artikel'>Details of an Artikel</h2>
+<p>This endpoint returns artikel information in JSON format.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET https://{{METRO_URL}}/.../{{no}}</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
@@ -417,7 +417,7 @@ Requester: Metro</p>
 </thead><tbody>
 <tr>
 <td>no</td>
-<td>&quot;No&quot; can be either the article number or the GTIN.</td>
+<td>&quot;No&quot; can be either the artikel number or the GTIN.</td>
 </tr>
 </tbody></table>
 <h3 id='response-data'>Response Data</h3>
@@ -483,8 +483,8 @@ Requester: Whole Surplus</p>
 <p>Owner: Metro
 </br>
 Requester: WholeSurplus</p>
-<h2 id='articles'>Articles</h2>
-<p>This endpoint returns a list of articles</p>
+<h2 id='artikels'>Artikels</h2>
+<p>This endpoint returns a list of artikels</p>
 <h3 id='url-parameters-5'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -494,7 +494,7 @@ Requester: WholeSurplus</p>
 </thead><tbody>
 <tr>
 <td>limit</td>
-<td>The maximum number of articles to be returned.</td>
+<td>The maximum number of artikels to be returned.</td>
 </tr>
 <tr>
 <td>page</td>
